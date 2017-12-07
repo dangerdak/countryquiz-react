@@ -1,9 +1,9 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 require('./index.css');
-const App = require('./components/App');
+const Quiz = require('./components/Quiz');
 
 ReactDOM.render(
-  <App />,
+  <Quiz />,
   document.getElementById('app')
 );
