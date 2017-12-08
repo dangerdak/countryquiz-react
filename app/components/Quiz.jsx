@@ -2,34 +2,20 @@ const React = require('react');
 const QuestionHeader = require('./QuestionHeader.jsx');
 const SelectAnswer = require('./SelectAnswer.jsx');
 const QuestionNavigation = require('./QuestionNavigation.jsx');
+const questions = require('../country-data');
 
 function Quiz() {
-  const country = {
-    region: 'Asia',
-    capital: 'Kabul',
-    name: 'Afghanistan',
-    largestCities: [
-      'Kabul',
-      'Kandahar',
-    ],
-    options: [
-      'Kabul',
-      'Kandahar',
-      'Marieham',
-      'Tirana',
-      'London',
-    ],
-  };
+  const questionNumber = 2;
   return (
     <section>
       <QuestionHeader
-        countryName={country.name}
-        question={{ number: 1, total: 5 }}
+        countryName={questions[questionNumber].name}
+        question={{ number: questionNumber, total: questions.length }}
       />
       <SelectAnswer
-        options={country.options}
+        options={questions[questionNumber].options}
       />
-      <QuestionNavigation questionNumber={1} />
+      <QuestionNavigation questionNumber={questionNumber} />
     </section>
   );
 }

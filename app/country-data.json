@@ -1,0 +1,101 @@
+[
+    {
+        "language": [
+            "Pashto",
+            "Dari"
+        ],
+        "cca3": "AFG",
+        "region": "Asia",
+        "capital": "Kabul",
+        "cca2": "AF",
+        "name": "Afghanistan",
+        "largestCities": [
+            "Kabul",
+            "Kandahar"
+        ],
+        "options": [
+          "Kabul",
+          "Kandahar",
+          "Marieham",
+          "Tirana",
+          "London"
+        ]
+    },
+    {
+        "language": [
+            "Swedish"
+        ],
+        "cca3": "ALA",
+        "region": "Europe",
+        "capital": "Mariehamn",
+        "cca2": "AX",
+        "name": "\u00c5land Islands",
+        "options": [
+          "Kabul",
+          "Kandahar",
+          "Marieham",
+          "Tirana",
+          "Algiers"
+        ]
+    },
+    {
+        "language": [
+            "Albanian"
+        ],
+        "cca3": "ALB",
+        "region": "Europe",
+        "capital": "Tirana",
+        "cca2": "AL",
+        "name": "Albania",
+        "largestCities": [
+            "Durres",
+            "Tirana"
+        ],
+        "options": [
+          "Kabul",
+          "Kandahar",
+          "Marieham",
+          "Tirana",
+          "Algiers"
+        ]
+    },
+    {
+        "language": [
+            "Arabic"
+        ],
+        "cca3": "DZA",
+        "region": "Africa",
+        "capital": "Algiers",
+        "cca2": "DZ",
+        "name": "Algeria",
+        "largestCities": [
+            "Algiers",
+            "Boumerdas"
+        ],
+        "options": [
+          "Kabul",
+          "Pago Pago",
+          "Marieham",
+          "Tirana",
+          "Algiers"
+        ]
+    },
+    {
+        "language": [
+            "English",
+            "Samoan"
+        ],
+        "cca3": "ASM",
+        "region": "Oceania",
+        "capital": "Pago Pago",
+        "cca2": "AS",
+        "name": "American Samoa",
+        "options": [
+          "Pago Pago",
+          "Kandahar",
+          "Marieham",
+          "Tirana",
+          "Algiers"
+        ]
+    }
+]

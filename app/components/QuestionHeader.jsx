@@ -4,7 +4,7 @@ const PropTypes = require('prop-types');
 function QuestionHeader(props) {
   return (
     <h2>
-      {props.question.number}&#47;{props.question.total}.
+      {props.question.number + 1}&#47;{props.question.total}.
       What is the capital city of {props.countryName}?
     </h2>
   );
