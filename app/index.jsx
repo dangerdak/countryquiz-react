@@ -5,5 +5,5 @@ const Quiz = require('./components/Quiz');
 
 ReactDOM.render(
   <Quiz />,
-  document.getElementById('app')
+  document.getElementById('app'),
 );
