@@ -28,12 +28,15 @@ Question.propTypes = {
 function Quiz() {
   const questionNumber = 4;
   return (
-    <form>
-      <Question questionNumber={questionNumber} />
-      <QuestionNavigation
-        question={{ number: questionNumber, total: questions.length }}
-      />
-    </form>
+    <main>
+    <h1>Capital Cities Quiz</h1>
+      <form>
+        <Question questionNumber={questionNumber} />
+        <QuestionNavigation
+          question={{ number: questionNumber, total: questions.length }}
+        />
+      </form>
+    </main>
   );
 }
 
