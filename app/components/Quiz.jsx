@@ -1,17 +1,5 @@
 const React = require('react');
-
-class QuestionHeader extends React.Component {
-  render() {
-    return (
-      <section>
-        <h2>
-          {this.props.question.number}&#47;{this.props.question.total}.
-          What is the capital city of {this.props.country.name}?
-        </h2>
-      </section>
-    );
-  }
-}
+const QuestionHeader = require('./QuestionHeader.jsx');
 
 class Quiz extends React.Component {
   render() {
@@ -33,7 +21,7 @@ class Quiz extends React.Component {
     };
     return (
       <QuestionHeader
-        country={{ name: country.name }}
+        countryName={country.name}
         question={{ number: 1, total: 5 }}
       />
     );
