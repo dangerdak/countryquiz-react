@@ -1,6 +1,7 @@
 const React = require('react');
 const QuestionHeader = require('./QuestionHeader.jsx');
 const SelectAnswer = require('./SelectAnswer.jsx');
+const QuestionNavigation = require('./QuestionNavigation.jsx');
 
 function Quiz() {
   const country = {
@@ -28,6 +29,7 @@ function Quiz() {
       <SelectAnswer
         options={country.options}
       />
+      <QuestionNavigation questionNumber={1} />
     </section>
   );
 }
