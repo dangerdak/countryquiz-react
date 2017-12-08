@@ -1,5 +1,6 @@
 const React = require('react');
 const QuestionHeader = require('./QuestionHeader.jsx');
+const SelectAnswer = require('./SelectAnswer.jsx');
 
 function Quiz() {
   const country = {
@@ -19,10 +20,15 @@ function Quiz() {
     ],
   };
   return (
-    <QuestionHeader
-      countryName={country.name}
-      question={{ number: 1, total: 5 }}
-    />
+    <section>
+      <QuestionHeader
+        countryName={country.name}
+        question={{ number: 1, total: 5 }}
+      />
+      <SelectAnswer
+        options={country.options}
+      />
+    </section>
   );
 }
 

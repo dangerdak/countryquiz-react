@@ -3,12 +3,10 @@ const PropTypes = require('prop-types');
 
 function QuestionHeader(props) {
   return (
-    <section>
-      <h2>
-        {props.question.number}&#47;{props.question.total}.
-        What is the capital city of {props.countryName}?
-      </h2>
-    </section>
+    <h2>
+      {props.question.number}&#47;{props.question.total}.
+      What is the capital city of {props.countryName}?
+    </h2>
   );
 }
 
