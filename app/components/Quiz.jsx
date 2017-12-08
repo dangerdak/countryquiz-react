@@ -5,7 +5,7 @@ const QuestionNavigation = require('./QuestionNavigation.jsx');
 const questions = require('../country-data');
 
 function Quiz() {
-  const questionNumber = 2;
+  const questionNumber = 4;
   return (
     <section>
       <QuestionHeader
@@ -15,7 +15,9 @@ function Quiz() {
       <SelectAnswer
         options={questions[questionNumber].options}
       />
-      <QuestionNavigation questionNumber={questionNumber} />
+      <QuestionNavigation
+        question={{ number: questionNumber, total: questions.length }}
+      />
     </section>
   );
 }
