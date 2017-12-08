@@ -7,18 +7,22 @@ const questions = require('../country-data');
 function Quiz() {
   const questionNumber = 4;
   return (
-    <section>
-      <QuestionHeader
-        countryName={questions[questionNumber].name}
-        question={{ number: questionNumber, total: questions.length }}
-      />
-      <SelectAnswer
-        options={questions[questionNumber].options}
-      />
+    <form>
+      <fieldset>
+        <legend>
+          <QuestionHeader
+            countryName={questions[questionNumber].name}
+            question={{ number: questionNumber, total: questions.length }}
+          />
+        </legend>
+        <SelectAnswer
+          options={questions[questionNumber].options}
+        />
+      </fieldset>
       <QuestionNavigation
         question={{ number: questionNumber, total: questions.length }}
       />
-    </section>
+    </form>
   );
 }
 

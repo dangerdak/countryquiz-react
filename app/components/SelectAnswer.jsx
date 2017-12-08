@@ -3,9 +3,15 @@ const PropTypes = require('prop-types');
 
 function SelectAnswer({ options }) {
   return (
-    <ul>
-      {options.map(option => <li key={option}>{option}</li>)}
-    </ul>
+    <div>
+      {options.map(option =>
+          (
+            <label htmlFor={option} key={option}>
+              <input type="radio" id={option} name="answerOption" value={option} />
+              {option}
+            </label>
+          ))}
+    </div>
   );
 }
 
