@@ -1,17 +1,15 @@
 const React = require('react');
 const PropTypes = require('prop-types');
 
-class QuestionHeader extends React.Component {
-  render() {
-    return (
-      <section>
-        <h2>
-          {this.props.question.number}&#47;{this.props.question.total}.
-          What is the capital city of {this.props.countryName}?
-        </h2>
-      </section>
-    );
-  }
+function QuestionHeader(props) {
+  return (
+    <section>
+      <h2>
+        {props.question.number}&#47;{props.question.total}.
+        What is the capital city of {props.countryName}?
+      </h2>
+    </section>
+  );
 }
 
 QuestionHeader.propTypes = {
