@@ -2,18 +2,18 @@ const React = require('react');
 const PropTypes = require('prop-types');
 const questions = require('../country-data');
 
-function QuestionHeader(props) {
+function QuestionHeader({ questionNumber, countryName }) {
   return (
     <h2>
-      {props.question.number + 1}&#47;{props.question.total}.
-      What is the capital city of {props.countryName}?
+      {questionNumber.current + 1}&#47;{questionNumber.total}.
+      What is the capital city of {countryName}?
     </h2>
   );
 }
 
 QuestionHeader.propTypes = {
-  question: PropTypes.shape({
-    number: PropTypes.number,
+  questionNumber: PropTypes.shape({
+    current: PropTypes.number,
     total: PropTypes.number,
   }).isRequired,
   countryName: PropTypes.string.isRequired,
@@ -37,52 +37,59 @@ SelectAnswer.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
-function QuestionNavigation({ question }) {
+function QuestionNavigation({ questionNumber }) {
   return (
     <nav>
-      { question.number !== 0 ? <button>Previous</button> : null }
-      { question.number !== question.total - 1 ? <button>Next</button> : null }
-      { question.number === question.total - 1 ? <button>Submit</button> : null }
+      { questionNumber.current !== 0 ? <button>Previous</button> : null }
+      { questionNumber.current !== questionNumber.total - 1 ? <button>Next</button> : null }
+      { questionNumber.current === questionNumber.total - 1 ? <button>Submit</button> : null }
     </nav>
   );
 }
 
 QuestionNavigation.propTypes = {
-  question: PropTypes.shape({
+  questionNumber: PropTypes.shape({
     number: PropTypes.number,
     total: PropTypes.number,
   }).isRequired,
 };
 
-function Question({ questionNumber }) {
+function Question({ question, questionNumber }) {
   return (
     <fieldset>
       <legend>
         <QuestionHeader
-          countryName={questions[questionNumber].name}
-          question={{ number: questionNumber, total: questions.length }}
+          countryName={question.name}
+          questionNumber={questionNumber}
         />
       </legend>
       <SelectAnswer
-        options={questions[questionNumber].options}
+        options={question.options}
       />
     </fieldset>
   );
 }
 
 Question.propTypes = {
-  questionNumber: PropTypes.number.isRequired,
+  question: PropTypes.object.isRequired,
+  questionNumber: PropTypes.shape({
+    number: PropTypes.number,
+    total: PropTypes.number,
+  }).isRequired,
 };
 
 function Quiz() {
-  const questionNumber = 4;
+  const currentQuestion = 4;
   return (
     <main>
       <h1>Capital Cities Quiz</h1>
       <form>
-        <Question questionNumber={questionNumber} />
+        <Question
+          question={questions[currentQuestion]}
+          questionNumber={{ current: currentQuestion, total: questions.length }}
+        />
         <QuestionNavigation
-          question={{ number: questionNumber, total: questions.length }}
+          questionNumber={{ current: currentQuestion, total: questions.length }}
         />
       </form>
     </main>

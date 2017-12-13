@@ -16,3 +16,8 @@ My first React.js app!
     - questionHeader (orange)
     - selectAnswer (green)
   - next (red)
+
+## Data
+- Questions (quiz props)
+- Current question number (quiz state)
+- Users answers (quiz state, results props)
