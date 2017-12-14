@@ -1,5 +1,7 @@
 const React = require('react');
 const PropTypes = require('prop-types');
+
+const Results = require('./Results.jsx');
 const questions = require('../country-data');
 
 function QuestionHeader({ questionNumber, countryName }) {
@@ -46,12 +48,12 @@ SelectAnswer.propTypes = {
   onSelect: PropTypes.func.isRequired,
 };
 
-function QuestionNavigation({ questionNumber, onNext, onPrevious }) {
+function QuestionNavigation({ questionNumber, onNext, onPrevious, onSubmit }) {
   return (
     <nav>
       { questionNumber.current !== 0 ? <button onClick={onPrevious}>Previous</button> : null }
       { questionNumber.current !== questionNumber.total - 1 ? <button onClick={onNext}>Next</button> : null }
-      { questionNumber.current === questionNumber.total - 1 ? <button>Submit</button> : null }
+      { questionNumber.current === questionNumber.total - 1 ? <button onClick={onSubmit}>Submit</button> : null }
     </nav>
   );
 }
@@ -63,6 +65,7 @@ QuestionNavigation.propTypes = {
   }).isRequired,
   onNext: PropTypes.func.isRequired,
   onPrevious: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 function Question({ question, userAnswer, questionNumber, onSelect }) {
@@ -100,11 +103,13 @@ class Quiz extends React.Component {
     this.state = {
       currentQuestion: 0,
       userAnswers: [],
+      stage: 'questions',
     };
 
     this.handleNext = this.handleNext.bind(this);
     this.handlePrevious = this.handlePrevious.bind(this);
     this.handleSelection = this.handleSelection.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleNext(event) {
@@ -134,25 +139,40 @@ class Quiz extends React.Component {
     });
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    this.setState({
+      stage: 'results',
+    });
+  }
+
   render() {
-    const { currentQuestion, userAnswers } = this.state;
+    const { currentQuestion, userAnswers, stage } = this.state;
+    const correctAnswers = questions.map(question => question.capital);
 
     return (
       <main>
         <h1>Capital Cities Quiz</h1>
-        <form>
-          <Question
-            question={questions[currentQuestion]}
-            questionNumber={{ current: currentQuestion, total: questions.length }}
-            onSelect={this.handleSelection}
-            userAnswer={userAnswers[currentQuestion] || ''}
+        { stage === 'questions' ?
+          <form>
+            <Question
+              question={questions[currentQuestion]}
+              questionNumber={{ current: currentQuestion, total: questions.length }}
+              onSelect={this.handleSelection}
+              userAnswer={userAnswers[currentQuestion] || ''}
+            />
+            <QuestionNavigation
+              questionNumber={{ current: currentQuestion, total: questions.length }}
+              onNext={this.handleNext}
+              onPrevious={this.handlePrevious}
+              onSubmit={this.handleSubmit}
+            />
+          </form>
+          :
+          <Results
+            answers={{ user: userAnswers, correct: correctAnswers }}
           />
-          <QuestionNavigation
-            questionNumber={{ current: currentQuestion, total: questions.length }}
-            onNext={this.handleNext}
-            onPrevious={this.handlePrevious}
-          />
-        </form>
+        }
       </main>
     );
   }

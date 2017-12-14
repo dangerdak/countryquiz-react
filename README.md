@@ -8,14 +8,21 @@ To learn React & capital cities
 
 ## How
 My first React.js app!  
-![components of the app](components.jpg)
+![components of the quetions pages](components.jpg)
+- Quiz (pink)
+  - Question (blue)
+    - QuestionHeader (orange)
+    - SelectAnswer (green)
+  - QuestionNavigation (red)
 
-### Components
-- quiz (pink)
-  - question (blue)
-    - questionHeader (orange)
-    - selectAnswer (green)
-  - next (red)
+![components of the results page](results-components.jpg)
+- Quiz (pink)
+  - Results (blue)
+    - Score (red)
+    - Solutions (green)
+        - Solution (turquoise)
+  - ResultsNavigation (orange)
+
 
 ## Data
 - Questions (quiz props)
