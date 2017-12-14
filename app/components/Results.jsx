@@ -62,11 +62,24 @@ Solutions.propTypes = {
   })).isRequired,
 };
 
-function Results({ answers }) {
+function Retry({ onRetry }) {
+  return (
+    <button onClick={onRetry}>
+      Retry
+    </button>
+  );
+}
+
+Retry.propTypes = {
+  onRetry: PropTypes.func.isRequired,
+};
+
+function Results({ answers, onRetry }) {
   return (
     <div>
       <Score answers={answers} />
       <Solutions answers={answers} />
+      <Retry onRetry={onRetry} />
     </div>
   );
 }
@@ -77,6 +90,7 @@ Results.propTypes = {
     correct: PropTypes.string,
     country: PropTypes.string,
   })).isRequired,
+  onRetry: PropTypes.func.isRequired,
 };
 
 module.exports = Results;

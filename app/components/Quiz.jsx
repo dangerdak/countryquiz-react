@@ -110,6 +110,7 @@ class Quiz extends React.Component {
     this.handlePrevious = this.handlePrevious.bind(this);
     this.handleSelection = this.handleSelection.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleRetry = this.handleRetry.bind(this);
   }
 
   handleNext(event) {
@@ -146,6 +147,15 @@ class Quiz extends React.Component {
     });
   }
 
+  handleRetry(event) {
+    event.preventDefault();
+    this.setState({
+      stage: 'questions',
+      currentQuestion: 0,
+      userAnswers: [],
+    });
+  }
+
   render() {
     const { currentQuestion, userAnswers, stage } = this.state;
     const answers = questions.map((question, index) => (
@@ -173,6 +183,7 @@ class Quiz extends React.Component {
           :
           <Results
             answers={answers}
+            onRetry={this.handleRetry}
           />
         }
       </main>
