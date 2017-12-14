@@ -148,7 +148,9 @@ class Quiz extends React.Component {
 
   render() {
     const { currentQuestion, userAnswers, stage } = this.state;
-    const correctAnswers = questions.map(question => question.capital);
+    const answers = questions.map((question, index) => (
+      { country: question.name, correct: question.capital, user: userAnswers[index] }
+    ));
 
     return (
       <main>
@@ -170,7 +172,7 @@ class Quiz extends React.Component {
           </form>
           :
           <Results
-            answers={{ user: userAnswers, correct: correctAnswers }}
+            answers={answers}
           />
         }
       </main>
