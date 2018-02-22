@@ -3,12 +3,18 @@
 ## What
 This quiz tests the users knowledge of the world's capital cities.
 
+## Running locally
+```
+git clone git@github.com:dangerdak/countryquiz-react.git
+npm run start
+```
+Then go to `localhost:8080` in your browser.
+
 ## Why
 To learn React & capital cities
 
 ## How
-My first React.js app!  
-![components of the quetions pages](components.jpg)
+![components of the questions pages](components.jpg)
 - Quiz (pink)
   - Question (blue)
     - QuestionHeader (orange)
