@@ -1,8 +1,8 @@
 import React from 'react';
 
 import QuestionNavigation from './QuestionNavigation';
-import Question from './Question';
-import Results from './Results';
+import Question from './question/Question';
+import Results from './results/Results';
 
 const questions = require('../country-data');
 
